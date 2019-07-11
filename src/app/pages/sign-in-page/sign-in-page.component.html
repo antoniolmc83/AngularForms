@@ -1,0 +1,30 @@
+<div class="container">
+
+  <form [formGroup]="signInForm" (ngSubmit)="save()" >
+    <div class="form-group">
+      <label for="id_email">Email</label>
+      <input type="email" class="form-control"
+             id="id_email"
+             formControlName="email">
+      <app-error-message [control]="email"></app-error-message>
+    </div>
+    <div class="form-group">
+      <label for="id_password">Password</label>
+      <input type="password" class="form-control"
+             id="id_password"
+             formControlName="password">
+      <app-error-message [control]="signInForm.get('password')"></app-error-message>
+    </div>
+    <div class="form-group">
+      <app-counter-input formControlName="counter"></app-counter-input>
+    </div>
+    <pre>{{ signInForm.value | json }}</pre>
+    <p *ngIf="!signInForm.valid">Counter is invalid!</p>
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="signInForm.invalid">Save</button>
+  </form>
+
+
+</div>

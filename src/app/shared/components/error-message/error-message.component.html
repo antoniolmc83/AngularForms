@@ -1,0 +1,8 @@
+<div *ngIf="control.errors && (control.touched || control.dirty)">
+  <div *ngIf="control.errors.required" >
+    Este elemento es requerido
+  </div>
+  <div *ngIf="control.errors.email" >
+    Este elemento debe ser un correo
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="container">
+  <div>
+    <form [formGroup]="taskForm" (ngSubmit)="createTask()" >
+      <div class="input-group">
+        <input type="text" class="form-control" formControlName="description">
+        <button type="submit" class="btn btn-primary">Agregar</button>
+      </div>
+    </form>
+  </div>
+  <br>
+  <div>
+    <div *ngFor="let task of tasks" class="row" style="border: 1px solid lightgrey;">
+      <div class="col-4">
+        {{ task.description }}
+      </div>
+      <div class="col-4">
+        {{ task.completed ? 'Completado' : 'Por completar' }}
+      </div>
+      <div class="col-4">
+        <button class="btn btn-primary">Editar</button>
+        <button class="btn btn-danger">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>
